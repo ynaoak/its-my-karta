@@ -21,6 +21,7 @@
       {
         "binding": "DB",
         "database_name": "its-my-karta-db-preview",
+        "database_id": "482ffda3-d3b3-454a-81f2-a634c727e24d",
         "migrations_dir": "migrations",
       },
     ],

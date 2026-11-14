@@ -65,7 +65,7 @@ npm run db:migrate:remote
 npm run deploy
 ```
 
-`deploy:check`はD1の名前またはID、R2/DOのbinding、生成済み静的ファイル、Static Assetsのファイルサイズをローカルで確認します。Cloudflareへの通信、リソース存在、Clerkの実設定は確認しません。D1を名前で指定するデフォルト設定でも通ります。明示したIDが不正な場合や、名前とIDの両方がない場合は停止します。既存D1が未作成の場合は、後続のリモートmigrationでエラーになるため、先に手順2で作成してください。
+`deploy:check`はD1の名前またはID、R2/DOのbinding、生成済み静的ファイル、Static Assetsのファイルサイズをローカルで確認します。Cloudflareへの通信、リソース存在、Clerkの実設定は確認しません。本番デプロイはD1を名前で指定するデフォルト設定でも通ります。明示したIDが不正な場合や、名前とIDの両方がない場合は停止します。既存D1が未作成の場合は、後続のリモートmigrationでエラーになるため、先に手順2で作成してください。
 
 Workers Buildsを使う場合は、ビルド環境変数 `NODE_VERSION=26.13.1` を設定します（Worker実行時の環境変数ではありません）。ビルドコマンド`npm ci && npm run build`、デプロイコマンド`npm run deploy:check && npm run db:migrate:remote && npx wrangler deploy`を設定します。実行するCloudflareトークンにはD1 migrationの権限も必要です。
 
@@ -94,6 +94,8 @@ Cloudflareの非本番ブランチは`wrangler preview`で配信されます。�
 | R2 `MEDIA` | `its-my-karta-media` | `its-my-karta-media-preview`                |
 | D1 `DB`    | `its-my-karta-db`    | `its-my-karta-db-preview`                   |
 | DO `ROOMS` | 本番の名前空間       | Previewごとに自動生成される独立した名前空間 |
+
+Preview APIは、通常デプロイと異なりD1の`database_id`が必須です。`previews.d1_databases`の`DB`には、プレビュー専用DBの実際のUUIDを設定しています。DBを作り直した場合や別アカウントへ移す場合は、このIDを更新してください。`database_name`だけではAPIエラー10021になります。
 
 ### 一度だけ行う設定
 

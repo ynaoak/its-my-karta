@@ -33,8 +33,6 @@ async function check(database, { previews, preview = false } = {}) {
     });
     assert.ifError(result.error);
     return result;
-    assert.ifError(result.error);
-    return result;
   } finally {
     await rm(root, { recursive: true, force: true });
   }
@@ -67,7 +65,7 @@ test('D1 binding・名前・IDがない設定は拒否する', async () => {
 });
 
 const safePreviews = {
-  d1_databases: [{ binding: 'DB', database_name: 'its-my-karta-db-preview' }],
+  d1_databases: [{ binding: 'DB', database_name: 'its-my-karta-db-preview', database_id: id }],
   r2_buckets: [{ binding: 'MEDIA', bucket_name: 'its-my-karta-media-preview' }],
   durable_objects: { bindings: [{ name: 'ROOMS', class_name: 'KarutaRoom' }] },
 };
@@ -111,4 +109,20 @@ test('プレビューの外部Durable Object参照を拒否する', async () => 
   const r = await check({ database_name: 'its-my-karta-db' }, { previews, preview: true });
   assert.equal(r.status, 1);
   assert.match(r.stderr, /script_name/);
+});
+
+test('Preview APIへ名前だけのD1 bindingを送る設定は事前に拒否する', async () => {
+  const previews = structuredClone(safePreviews);
+  delete previews.d1_databases[0].database_id;
+  const r = await check({ database_name: 'its-my-karta-db' }, { previews, preview: true });
+  assert.equal(r.status, 1);
+  assert.match(r.stderr, /Preview API.*database_id/);
+});
+test('名前が異なってもPreviewに本番D1のIDを指定することを拒否する', async () => {
+  const r = await check(
+    { database_name: 'its-my-karta-db', database_id: id },
+    { previews: safePreviews, preview: true },
+  );
+  assert.equal(r.status, 1);
+  assert.match(r.stderr, /本番D1/);
 });

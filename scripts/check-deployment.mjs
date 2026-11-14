@@ -17,11 +17,18 @@ const db = bindings.d1_databases?.find((entry) => entry.binding === 'DB');
 const databaseName = typeof db?.database_name === 'string' ? db.database_name.trim() : '';
 const uuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i;
 const hasDatabaseId = db?.database_id !== undefined;
-// Wrangler resolves an existing D1 database by database_name when no ID is supplied.
+if (preview && !hasDatabaseId) {
+  missing.push(
+    'Preview APIのDB bindingには database_id（UUID）が必須です。database_nameだけではデプロイできません',
+  );
+}
+// Normal deploys resolve D1 by name. The Preview deployment API instead requires database_id.
 // An explicitly supplied invalid ID must still fail, rather than falling back silently.
 if (hasDatabaseId && (typeof db.database_id !== 'string' || !uuid.test(db.database_id))) {
   missing.push(
-    'DB binding の database_id を実際のUUIDに修正するか、database_nameで指定してください',
+    preview
+      ? 'Preview DB binding の database_id を実際のUUIDに修正してください'
+      : 'DB binding の database_id を実際のUUIDに修正するか、database_nameで指定してください',
   );
 }
 if (!databaseName && !hasDatabaseId) {
