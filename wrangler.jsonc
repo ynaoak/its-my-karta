@@ -4,7 +4,11 @@
   "main": "src/worker.ts",
   "compatibility_date": "2026-11-01",
   "keep_vars": true,
-  "assets": { "directory": "public", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/", "/index.html", "/robots.txt", "/sitemap.xml"],
+  },
   "durable_objects": { "bindings": [{ "name": "ROOMS", "class_name": "KarutaRoom" }] },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["KarutaRoom"] }],
   "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "its-my-karta-media" }],

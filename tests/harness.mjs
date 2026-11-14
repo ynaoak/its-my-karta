@@ -84,6 +84,10 @@ export async function setup({ engine = false } = {}) {
                     css: 'text/css',
                     wasm: 'application/wasm',
                     json: 'application/json',
+                    xml: 'application/xml',
+                    txt: 'text/plain',
+                    svg: 'image/svg+xml',
+                    png: 'image/png',
                   }[ext] || 'application/octet-stream',
               },
             });

@@ -19,7 +19,9 @@
     "format:check": "prettier --check src public/*.js public/*.css public/*.html browser scripts tests README.md docs/*.md package.json tsconfig.json wrangler.jsonc",
     "deploy:check": "node scripts/check-deployment.mjs",
     "db:migrate:preview": "wrangler d1 migrations apply its-my-karta-db-preview --remote",
-    "deploy:preview": "npm run build && npm run deploy:check -- --preview && npm run db:migrate:preview && wrangler preview"
+    "deploy:preview": "npm run build && npm run deploy:check -- --preview && npm run db:migrate:preview && wrangler preview",
+    "seo:images": "node scripts/render-social-images.mjs",
+    "test:seo": "node tests/seo.mjs"
   },
   "dependencies": {
     "@clerk/backend": "2.33.9",

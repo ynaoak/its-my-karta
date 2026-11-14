@@ -36,7 +36,10 @@ export class HttpError extends Error {
   }
 }
 export function json(value: unknown, status = 200) {
-  return Response.json(value, { status, headers: { 'Cache-Control': 'no-store' } });
+  return Response.json(value, {
+    status,
+    headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' },
+  });
 }
 export function assert(value: unknown, message: string, status = 400): asserts value {
   if (!value) throw new HttpError(status, message);
