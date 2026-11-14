@@ -10,7 +10,7 @@ const browser = await chromium.launch({
 try {
   for (const [source, output, width, height] of [
     ['public/og-image.svg', 'public/og-image.png', 1200, 630],
-    ['public/favicon.svg', 'public/apple-touch-icon.png', 180, 180],
+    ['public/apple-touch-icon.svg', 'public/apple-touch-icon.png', 180, 180],
   ]) {
     const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
     const svg = await readFile(source, 'utf8');
