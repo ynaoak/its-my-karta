@@ -1,0 +1,13 @@
+node_modules/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+.cache/
+public/tts-worker.js
+public/vendor/
+public/assets/
+playwright-report/
+test-results/
+*.zip
