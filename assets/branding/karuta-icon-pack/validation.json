@@ -1,0 +1,305 @@
+{
+  "count": 60,
+  "files": [
+    {
+      "file": "png/karuta-icon-16.png",
+      "size": 16,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-24.png",
+      "size": 24,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-32.png",
+      "size": 32,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-48.png",
+      "size": 48,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-64.png",
+      "size": 64,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-96.png",
+      "size": 96,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-128.png",
+      "size": 128,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-180.png",
+      "size": 180,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-192.png",
+      "size": 192,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-256.png",
+      "size": 256,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-384.png",
+      "size": 384,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-512.png",
+      "size": 512,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-768.png",
+      "size": 768,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-1024.png",
+      "size": 1024,
+      "transparent_corner": true
+    },
+    {
+      "file": "png/karuta-icon-2048.png",
+      "size": 2048,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-16.webp",
+      "size": 16,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-24.webp",
+      "size": 24,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-32.webp",
+      "size": 32,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-48.webp",
+      "size": 48,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-64.webp",
+      "size": 64,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-96.webp",
+      "size": 96,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-128.webp",
+      "size": 128,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-180.webp",
+      "size": 180,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-192.webp",
+      "size": 192,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-256.webp",
+      "size": 256,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-384.webp",
+      "size": 384,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-512.webp",
+      "size": 512,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-768.webp",
+      "size": 768,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-1024.webp",
+      "size": 1024,
+      "transparent_corner": true
+    },
+    {
+      "file": "webp/karuta-icon-2048.webp",
+      "size": 2048,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-16.avif",
+      "size": 16,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-24.avif",
+      "size": 24,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-32.avif",
+      "size": 32,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-48.avif",
+      "size": 48,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-64.avif",
+      "size": 64,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-96.avif",
+      "size": 96,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-128.avif",
+      "size": 128,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-180.avif",
+      "size": 180,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-192.avif",
+      "size": 192,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-256.avif",
+      "size": 256,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-384.avif",
+      "size": 384,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-512.avif",
+      "size": 512,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-768.avif",
+      "size": 768,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-1024.avif",
+      "size": 1024,
+      "transparent_corner": true
+    },
+    {
+      "file": "avif/karuta-icon-2048.avif",
+      "size": 2048,
+      "transparent_corner": true
+    },
+    {
+      "file": "svg/karuta-icon-16.svg",
+      "size": 16,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-24.svg",
+      "size": 24,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-32.svg",
+      "size": 32,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-48.svg",
+      "size": 48,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-64.svg",
+      "size": 64,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-96.svg",
+      "size": 96,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-128.svg",
+      "size": 128,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-180.svg",
+      "size": 180,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-192.svg",
+      "size": 192,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-256.svg",
+      "size": 256,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-384.svg",
+      "size": 384,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-512.svg",
+      "size": 512,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-768.svg",
+      "size": 768,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-1024.svg",
+      "size": 1024,
+      "vector_paths": true
+    },
+    {
+      "file": "svg/karuta-icon-2048.svg",
+      "size": 2048,
+      "vector_paths": true
+    }
+  ]
+}
