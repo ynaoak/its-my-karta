@@ -29,7 +29,7 @@ D1の編集データから対戦開始時にスナップショットを作りま
 
 ## ローカル起動
 
-Node.js 24以上。
+Node.js 26.13.1（LTS）。`.node-version` / `.nvmrc` とCIで同じバージョンを指定しています。nvmを使う場合は `nvm install && nvm use` で切り替えてください。
 
 ```sh
 npm ci

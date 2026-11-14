@@ -4,7 +4,7 @@
 
 ## 1. Cloudflareへの接続
 
-手元のPCでも実施できます。Node.js 24以上でリポジトリを取得し、次を実行します。
+手元のPCでも実施できます。Node.js 26.13.1（LTS）でリポジトリを取得し、次を実行します。
 
 ```sh
 npm ci
@@ -67,7 +67,7 @@ npm run deploy
 
 `deploy:check`はD1のID、R2/DOのbinding、生成済み静的ファイル、Static Assetsのファイルサイズをローカルで確認します。Cloudflareへの通信、リソース存在、Clerkの実設定は確認しません。デフォルト設定では実際のD1 IDがないため失敗するのが正常です。
 
-Workers Buildsを使う場合は、ビルドコマンド`npm ci && npm run build`、デプロイコマンド`npm run deploy:check && npm run db:migrate:remote && npx wrangler deploy`を設定します。実行するCloudflareトークンにはD1 migrationの権限も必要です。
+Workers Buildsを使う場合は、ビルド環境変数 `NODE_VERSION=26.13.1` を設定します（Worker実行時の環境変数ではありません）。ビルドコマンド`npm ci && npm run build`、デプロイコマンド`npm run deploy:check && npm run db:migrate:remote && npx wrangler deploy`を設定します。実行するCloudflareトークンにはD1 migrationの権限も必要です。
 
 ## 5. 公開後の確認
 
