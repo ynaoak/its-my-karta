@@ -1,0 +1,37 @@
+{
+  "name": "its-my-karta",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "node scripts/build.mjs",
+    "check": "tsc --noEmit",
+    "test": "node --import tsx tests/validation.test.ts",
+    "test:browser": "node tests/browser.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "test:integration": "node tests/integration.mjs && node tests/voicevox.mjs",
+    "test:wasm": "node tests/wasm.mjs",
+    "tts:prepare-test-model": "node scripts/prepare-test-model.mjs",
+    "format": "prettier --write src public/*.js public/*.css public/*.html browser scripts tests README.md docs/*.md package.json tsconfig.json wrangler.jsonc",
+    "format:check": "prettier --check src public/*.js public/*.css public/*.html browser scripts tests README.md docs/*.md package.json tsconfig.json wrangler.jsonc"
+  },
+  "dependencies": {
+    "@clerk/backend": "2.33.9",
+    "onnxruntime-web": "1.30.0",
+    "piper-plus": "0.8.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261114.1",
+    "@playwright/test": "1.65.1",
+    "esbuild": "0.28.2",
+    "jose": "6.2.17",
+    "miniflare": "5.20261113.0-beta",
+    "prettier": "3.10.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "wrangler": "4.162.0"
+  }
+}
