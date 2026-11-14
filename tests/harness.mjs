@@ -111,7 +111,7 @@ export async function setup({ engine = false } = {}) {
   const tokens = {};
   for (const id of ['user_host', 'user_other'])
     tokens[id] = await new SignJWT({ sid: 'sess_test', azp: 'https://karta.test', sts: 'active' })
-      .setProtectedHeader({ alg: 'RS256' })
+      .setProtectedHeader({ alg: 'RS256', typ: 'JWT', cat: 'cl_B7d4PD111AAA' })
       .setIssuer('https://' + domain)
       .setSubject(id)
       .setIssuedAt()

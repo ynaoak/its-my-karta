@@ -8,7 +8,7 @@
     "build": "node scripts/build.mjs",
     "check": "tsc --noEmit",
     "test": "node --import tsx tests/validation.test.ts && node tests/deployment.test.mjs",
-    "test:browser": "node tests/browser.mjs",
+    "test:browser": "node tests/clerk-browser.mjs && node tests/browser.mjs",
     "deploy": "npm run build && npm run deploy:check && wrangler deploy",
     "db:migrate:local": "wrangler d1 migrations apply DB --local",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
@@ -24,7 +24,7 @@
     "test:seo": "node tests/seo.mjs"
   },
   "dependencies": {
-    "@clerk/backend": "2.33.9",
+    "@clerk/backend": "3.29.0",
     "onnxruntime-web": "1.30.0",
     "piper-plus": "0.8.2"
   },
