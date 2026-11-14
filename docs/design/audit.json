@@ -1,0 +1,104 @@
+{
+  "review": "Implementer review, not an independent classifier",
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": false,
+      "smallControls": [],
+      "gradients": 0
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "smallControls": [],
+      "gradients": 0
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "smallControls": [],
+      "gradients": 0
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "smallControls": [],
+      "gradients": 0
+    }
+  ],
+  "contrast": [
+    {
+      "selector": ".hero-description",
+      "ratio": 6.8
+    },
+    {
+      "selector": ".hero-kicker",
+      "ratio": 14.09
+    },
+    {
+      "selector": ".hero-features",
+      "ratio": 5.88
+    },
+    {
+      "selector": ".fuda-caption",
+      "ratio": 5.79
+    },
+    {
+      "selector": ".muted",
+      "ratio": 5.47
+    },
+    {
+      "selector": "label",
+      "ratio": 15.12
+    },
+    {
+      "selector": "#hero-create",
+      "ratio": 11.64
+    },
+    {
+      "selector": "#hero-join",
+      "ratio": 14.09
+    },
+    {
+      "selector": "#login",
+      "ratio": 15.27
+    },
+    {
+      "selector": ".kana-grid button.selected",
+      "ratio": 15.27
+    }
+  ],
+  "kana": [
+    {
+      "kana": "ゆ",
+      "row": "8",
+      "column": "3",
+      "width": 58,
+      "height": 44
+    },
+    {
+      "kana": "よ",
+      "row": "8",
+      "column": "5",
+      "width": 58,
+      "height": 44
+    },
+    {
+      "kana": "を",
+      "row": "10",
+      "column": "5",
+      "width": 58,
+      "height": 44
+    },
+    {
+      "kana": "ん",
+      "row": "11",
+      "column": "1",
+      "width": 58,
+      "height": 44
+    }
+  ],
+  "decorativeHeroElements": 0,
+  "fileInputKeyboardFocus": true,
+  "minimumContrast": 5.47
+}

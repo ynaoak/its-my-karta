@@ -67,11 +67,12 @@ try {
   checks++;
   const guest = await page();
   await guest.goto(base + '/?room=' + new URL(invite).searchParams.get('room'));
+  await guest.locator('.hero').waitFor({ state: 'hidden' });
   await guest.locator('#player-name').fill('ゲスト');
   await guest.locator('#join-room').click();
   await guest.locator('#players').getByText('ゲスト', { exact: false }).waitFor();
   await host.locator('#start-game').click();
-  await host.locator('#game-phase').filter({ hasText: 'LET’S PLAY' }).waitFor();
+  await host.locator('#game-phase').filter({ hasText: '対戦中' }).waitFor();
   const text = await host.locator('#prompt-text').innerText();
   const kana = {
     'あさの ひかりで きょうも げんき': 'あ',
