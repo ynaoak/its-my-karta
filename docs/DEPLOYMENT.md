@@ -84,3 +84,11 @@ Workers Buildsを使う場合は、ビルド環境変数 `NODE_VERSION=26.13.1` 
 VOICEVOX生成を使う場合は、管理者が運営する認証付きHTTPSエンジンを用意し、`VOICEVOX_ENGINE_URL`と必要に応じて`VOICEVOX_API_KEY`をWorker secretsへ設定します。詳細な音声利用条件は`VOICEVOX-LICENSES.md`を確認してください。
 
 WASM生成には`npm run build`後に`node scripts/install-tts.mjs --remote --confirm-production-upload`でランタイムをR2へ配置し、`WASM-TTS.md`に従って規約を確認した本番モデルを設定します。公開テストモデルは本番へ配置しません。モデルを設定するまではWASM生成だけ無効です。
+
+## Clerkが「古いバージョンのためサインインできません」と表示する場合
+
+Clerk JS v5を読み込んでいるデプロイは、Clerkインスタンスの設定によってサインインを拒否されることがあります。`public/clerk-auth.js`で正式版のClerk JS 6.43.1と、v6で別配布になったUI 1.42.6を読み込み、`clerk.load({ ui: { ClerkUI } })`で初期化します。サーバー側はBackend SDK 3.29.0を使用します。
+
+修正を含むブランチをmainにマージし、`npm ci`からビルド・再デプロイしてください。その後、ブラウザを再読み込みします。公開URL `https://yondetotte.oshi-katsu.com/` のDevTools → Networkで、`clerk-js@6.43.1/dist/clerk.browser.js`と`ui@1.42.6/dist/ui.browser.js`が正常に取得されていることを確認します。古いv5のリクエストが残る場合は、Workers Buildsの対象ブランチ・デプロイ結果とブラウザキャッシュを確認してください。
+
+この更新のために`CLERK_JWT_KEY`を`CLERK_SECRET_KEY`へ置き換える必要はありません。JWT public keyとPublishable keyは、これまでどおり同じClerkインスタンスのものを使用します。

@@ -1,3 +1,4 @@
+import { installClerkFixture } from './clerk-fixture.mjs';
 import { existsSync } from 'node:fs';
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
@@ -21,12 +22,7 @@ try {
     const p = await context.newPage();
     p.on('pageerror', (e) => errors.push(e.message));
     p.on('dialog', (d) => d.accept());
-    await p.route('https://clerk.karta.test/**', (route) =>
-      route.fulfill({
-        contentType: 'text/javascript',
-        body: `(()=>{let user=null,listeners=[];window.Clerk={get user(){return user},get session(){return user?{getToken:async()=>${JSON.stringify(tokens.user_host)}}:null},load:async()=>{},addListener:fn=>listeners.push(fn),openSignIn:()=>{user={id:'user_host',firstName:'テスト利用者'};listeners.forEach(f=>f());},signOut:async()=>{user=null;listeners.forEach(f=>f());}};})()`,
-      }),
-    );
+    await installClerkFixture(p, tokens.user_host);
     await p.route('https://fonts.googleapis.com/**', (r) => r.abort());
     return p;
   }

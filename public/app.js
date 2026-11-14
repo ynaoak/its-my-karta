@@ -1,3 +1,4 @@
+import { loadClerk } from './clerk-auth.js';
 import { generateLocal, cancelLocal } from './local-tts.js';
 const $ = (id) => document.getElementById(id),
   KANA = [
@@ -885,19 +886,14 @@ async function init() {
       $('auth-status').textContent = '管理者のClerk設定待ち';
       notice('閲覧・おためし編集は可能です。クラウド保存と対戦作成にはClerkの設定が必要です');
     } else {
-      const script = document.createElement('script');
-      script.async = true;
-      script.crossOrigin = 'anonymous';
-      script.dataset.clerkPublishableKey = config.clerkKey;
-      script.src = `https://${config.clerkDomain}/npm/@clerk/clerk-js@5/dist/clerk.browser.js`;
-      await new Promise((resolve, reject) => {
-        script.onload = resolve;
-        script.onerror = () => reject(new Error('Clerkを読み込めません'));
-        document.head.append(script);
-      });
-      clerk = window.Clerk;
-      await clerk.load();
-      $('login').onclick = () => clerk.openSignIn();
+      clerk = await loadClerk(config);
+      $('login').onclick = () => {
+        try {
+          clerk.openSignIn();
+        } catch (e) {
+          error(e);
+        }
+      };
       $('logout').onclick = () => clerk.signOut();
       $('login').hidden = !!clerk.user;
       $('auth-status').textContent = clerk.user ? 'ログイン中' : 'ログインしてつくろう';
