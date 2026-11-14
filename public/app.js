@@ -186,8 +186,24 @@ function openStudio(play) {
 $('hero-create').onclick = () => openStudio(false);
 $('hero-join').onclick = () => openStudio(true);
 
+const kanaRows = [
+  'あいうえお',
+  'かきくけこ',
+  'さしすせそ',
+  'たちつてと',
+  'なにぬねの',
+  'はひふへほ',
+  'まみむめも',
+  'や ゆ よ',
+  'らりるれろ',
+  'わ   を',
+  'ん    ',
+];
 for (const kana of KANA) {
   const b = document.createElement('button');
+  const row = kanaRows.findIndex((line) => line.includes(kana));
+  b.style.gridRow = String(row + 1);
+  b.style.gridColumn = String(kanaRows[row].indexOf(kana) + 1);
   b.textContent = kana;
   b.onclick = () => {
     selected = kana;
@@ -724,21 +740,16 @@ function renderGame(b) {
     $('players').append(el);
   }
   const titles = {
-    lobby: [
-      'WAITING ROOM',
-      'みんなを待っています',
-      '準備はいい？',
-      'みんなの準備ができたらスタート',
-    ],
-    memorize: ['MEMORY TIME', '札の場所を覚えよう', '記憶タイム', '札は対戦中も同じ場所に並びます'],
+    lobby: ['待機中', 'みんなを待っています', '準備はいい？', 'みんなの準備ができたらスタート'],
+    memorize: ['記憶タイム', '札の場所を覚えよう', '記憶タイム', '札は対戦中も同じ場所に並びます'],
     play: [
-      'LET’S PLAY',
+      '対戦中',
       'ことばを聞いて、札をとろう',
       '読み札',
       b.prompt?.text || '次の読み札を待っています…',
     ],
     ended: [
-      'RESULT',
+      '結果',
       '対戦が終了しました',
       'おつかれさまでした',
       '招待URLと対戦データは削除されました',

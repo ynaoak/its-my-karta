@@ -1,33 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">わたしのかるた — VTuberとリスナーの参加型かるた</title>
-  <desc id="desc">推しと、つくる。みんなで、とる。配信の名言・挨拶・録音ボイスでオンライン対戦。</desc>
-  <defs><linearGradient id="bg"><stop stop-color="#f1e7ff"/><stop offset="1" stop-color="#fff0f7"/></linearGradient><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.2" fill="#dcccf2"/></pattern></defs>
-  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#dots)"/>
-  <rect x="25" y="25" width="1150" height="580" rx="28" fill="none" stroke="#d7c3ee" stroke-width="2"/>
-  <g font-family="Noto Sans CJK JP, Noto Sans JP, sans-serif">
-    <g transform="translate(67 63) rotate(-7 25 27)"><rect width="51" height="57" rx="11" fill="#ffb0d1" x="4" y="5"/><rect width="51" height="57" rx="11" fill="#7650e8" stroke="#51328d" stroke-width="2"/><text x="25" y="42" text-anchor="middle" font-size="37" fill="white" font-weight="900">か</text></g>
-    <text x="139" y="106" fill="#382847" font-size="31" font-weight="900">わたしのかるた</text>
-    <rect x="64" y="163" width="343" height="42" rx="21" fill="white" stroke="#d7c2f2" stroke-width="2"/>
-    <text x="235" y="191" text-anchor="middle" fill="#7952b7" font-size="19" font-weight="700">✦ VTuber × リスナーの参加型かるた</text>
-    <text x="65" y="299" fill="#342543" font-size="64" font-weight="900">推しと、つくる。</text>
-    <rect x="64" y="373" width="530" height="19" rx="5" fill="#ffe775"/>
-    <text x="65" y="386" fill="#d9367b" font-size="64" font-weight="900">みんなで、とる。</text>
-    <text x="69" y="446" fill="#7e6b8b" font-size="21">配信の名言も、いつもの挨拶も、みんなのかるたに。</text>
-    <rect x="65" y="488" width="190" height="47" rx="24" fill="#7650e8"/>
-    <text x="160" y="519" text-anchor="middle" fill="white" font-size="19" font-weight="700">ボイスを札に ♪</text>
-    <rect x="273" y="488" width="238" height="47" rx="24" fill="white" stroke="#dcc8ef" stroke-width="2"/>
-    <text x="392" y="519" text-anchor="middle" fill="#7952b7" font-size="19" font-weight="700">招待URLで最大12人</text>
-    <text x="69" y="574" fill="#9680aa" font-size="16">yondetotte.oshi-katsu.com</text>
+  <title id="title">わたしのかるた — 配信の名言を、かるたに。</title>
+  <desc id="desc">VTuberの参加型配信に。画像と自分の声で札をつくり、招待URLからリスナーと対戦できます。</desc>
+  <rect width="1200" height="630" fill="#f7f6ef"/>
+  <g font-family="Noto Sans CJK JP, Noto Sans JP, sans-serif" fill="#242622">
+    <rect x="57" y="43" width="46" height="56" fill="#ffe04b" stroke="#242622" stroke-width="2"/>
+    <text x="80" y="83" text-anchor="middle" font-size="36" font-weight="900">か</text>
+    <text x="121" y="82" font-size="29" font-weight="900">わたしのかるた</text>
+    <text x="372" y="80" font-size="15" fill="#5b6159">配信かるた制作室</text>
+    <path d="M57 126H1143" stroke="#242622" stroke-width="3"/>
+    <text x="57" y="190" font-size="18" font-weight="700">VTuberの参加型配信に。</text>
+    <text x="57" y="291" font-size="65" font-weight="900">配信の名言を、</text>
+    <text x="57" y="382" font-size="65" font-weight="900">かるたに。</text>
+    <text x="60" y="443" font-size="20" fill="#51584c">いつもの挨拶、忘れられないひと言。</text>
+    <text x="60" y="480" font-size="20" fill="#51584c">画像と自分の声を添えて、リスナーと遊ぶ札を。</text>
+    <rect x="57" y="525" width="558" height="44" fill="#ffe04b"/>
+    <text x="76" y="553" font-size="16" font-weight="700">参加者はログイン不要 ／ 1対戦12人まで ／ 最大46枚</text>
+    <text x="1143" y="601" text-anchor="end" font-size="15" fill="#5b6159">yondetotte.oshi-katsu.com</text>
+    <text x="724" y="185" font-size="16" font-weight="700">札の見本</text>
+    <text x="1143" y="185" text-anchor="end" font-size="14" fill="#5b6159">「こ」の札</text>
+    <path d="M724 201H1143" stroke="#242622"/>
+    <rect x="724" y="221" width="202" height="286" fill="#ffe04b" stroke="#242622" stroke-width="2"/>
+    <circle cx="892" cy="253" r="20" fill="#fffef9" stroke="#242622" stroke-width="2"/>
+    <text x="892" y="266" text-anchor="middle" font-size="28" font-weight="700">こ</text>
+    <path d="M745 361Q745 306 825 306Q905 306 905 361Q905 426 825 426H745Z" fill="#242622"/>
+    <text x="825" y="355" text-anchor="middle" font-size="31" fill="#ffe04b" font-weight="700">こん</text>
+    <text x="825" y="397" text-anchor="middle" font-size="38" fill="#ffe04b" font-weight="900">〇〇！</text>
+    <text x="825" y="486" text-anchor="middle" font-size="13">取り札：好きな画像で</text>
+    <rect x="944" y="221" width="199" height="286" fill="#fffef9" stroke="#242622" stroke-width="2"/>
+    <g font-size="25" font-weight="700" writing-mode="vertical-rl"><text x="1100" y="244">こん〇〇！</text><text x="1054" y="244">いつもの声で</text><text x="1008" y="244">配信開始。</text></g>
+    <text x="1043" y="487" text-anchor="middle" font-size="11">読み札：自分の声も録音できます</text>
   </g>
-  <g transform="translate(768 115) rotate(-10 119 166)">
-    <rect x="7" y="9" width="238" height="323" rx="18" fill="#bba3dc"/>
-    <rect width="238" height="323" rx="18" fill="white" stroke="#63458c" stroke-width="2"/>
-    <circle cx="37" cy="37" r="22" fill="#f4ebff" stroke="#9c79c8" stroke-width="2"/><text x="37" y="49" text-anchor="middle" font-family="sans-serif" font-size="31" fill="#7952b7" font-weight="700">あ</text>
-    <text x="143" y="41" text-anchor="middle" font-size="10" fill="#a288b7" font-family="sans-serif" letter-spacing="1">SAMPLE CARD</text>
-    <rect x="16" y="74" width="206" height="137" rx="12" fill="#f2e8ff"/>
-    <g transform="translate(38 82)"><path d="M21 70V58a59 59 0 0 1 118 0v12" fill="none" stroke="#493183" stroke-width="8"/><rect x="9" y="48" width="22" height="44" rx="10" fill="#ff8eb9" stroke="#493183" stroke-width="3"/><rect x="129" y="48" width="22" height="44" rx="10" fill="#ff8eb9" stroke="#493183" stroke-width="3"/><path d="m80 19 13 26 29 4-21 20 5 29-26-14-26 14 5-29-21-20 29-4Z" fill="#ffe775" stroke="#493183" stroke-width="3" stroke-linejoin="round"/><path d="M69 62h1m20 0h1M73 73q7 8 14 0" fill="none" stroke="#493183" stroke-width="4" stroke-linecap="round"/></g>
-    <g text-anchor="middle" font-family="Noto Sans CJK JP, sans-serif" fill="#715183"><text x="119" y="244" font-size="17">あいさつは</text><text x="119" y="276" font-size="25" font-weight="700">「こん〇〇！」</text><text x="119" y="303" font-size="10" fill="#b595ca" letter-spacing="2">YOUR VOICE</text></g>
-  </g>
-  <g transform="translate(982 292) rotate(12 77 112)"><rect x="5" y="7" width="154" height="216" rx="16" fill="#edb5d2"/><rect width="154" height="216" rx="16" fill="#fff2f8" stroke="#b66a94" stroke-width="2"/><circle cx="29" cy="31" r="19" fill="none" stroke="#c985a6" stroke-width="2"/><text x="29" y="41" text-anchor="middle" font-size="25" fill="#ba4a82" font-family="sans-serif">す</text><text x="78" y="125" text-anchor="middle" fill="#ec79a7" font-size="86" font-family="sans-serif">♡</text><text x="78" y="157" text-anchor="middle" fill="#b45b84" font-size="15" font-family="sans-serif">すきが</text><text x="78" y="187" text-anchor="middle" fill="#b73172" font-size="25" font-weight="700" font-family="sans-serif">大渋滞！</text></g>
-  <g fill="#a47cd6" font-family="sans-serif"><text x="1080" y="180" font-size="55">✦</text><text x="715" y="454" font-size="44">✧</text></g>
 </svg>
