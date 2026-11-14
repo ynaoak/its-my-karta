@@ -177,6 +177,15 @@ function switchTab(play) {
 }
 $('editor-tab').onclick = () => switchTab(false);
 $('play-tab').onclick = () => switchTab(true);
+function openStudio(play) {
+  switchTab(play);
+  const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  document.querySelector('.tabs').scrollIntoView({ behavior, block: 'start' });
+  $(play ? 'player-name' : 'card-text').focus({ preventScroll: true });
+}
+$('hero-create').onclick = () => openStudio(false);
+$('hero-join').onclick = () => openStudio(true);
+
 for (const kana of KANA) {
   const b = document.createElement('button');
   b.textContent = kana;
@@ -624,7 +633,9 @@ async function joinRoom(id) {
   $('game').hidden = false;
   $('invite').value = `${location.origin}/?room=${id}`;
   history.replaceState(null, '', `?room=${id}`);
+  document.body.classList.add('room-view');
   switchTab(true);
+  $('game').scrollIntoView({ behavior: 'auto', block: 'start' });
 }
 $('create-room').onclick = () => act(createRoom);
 $('create-room').dataset.lock = '';
@@ -876,6 +887,7 @@ async function init() {
   restore();
   const room = new URLSearchParams(location.search).get('room');
   if (room) {
+    document.body.classList.add('room-view');
     switchTab(true);
     $('room-url').value = location.href;
     notice('名前を入力して「対戦に参加する」を押してください');
