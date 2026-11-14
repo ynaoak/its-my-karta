@@ -7,7 +7,7 @@
     "dev": "wrangler dev",
     "build": "node scripts/build.mjs",
     "check": "tsc --noEmit",
-    "test": "node --import tsx tests/validation.test.ts",
+    "test": "node --import tsx tests/validation.test.ts && node tests/deployment.test.mjs",
     "test:browser": "node tests/browser.mjs",
     "deploy": "npm run build && npm run deploy:check && wrangler deploy",
     "db:migrate:local": "wrangler d1 migrations apply DB --local",
@@ -17,7 +17,9 @@
     "tts:prepare-test-model": "node scripts/prepare-test-model.mjs",
     "format": "prettier --write src public/*.js public/*.css public/*.html browser scripts tests README.md docs/*.md package.json tsconfig.json wrangler.jsonc",
     "format:check": "prettier --check src public/*.js public/*.css public/*.html browser scripts tests README.md docs/*.md package.json tsconfig.json wrangler.jsonc",
-    "deploy:check": "node scripts/check-deployment.mjs"
+    "deploy:check": "node scripts/check-deployment.mjs",
+    "db:migrate:preview": "wrangler d1 migrations apply its-my-karta-db-preview --remote",
+    "deploy:preview": "npm run build && npm run deploy:check -- --preview && npm run db:migrate:preview && wrangler preview"
   },
   "dependencies": {
     "@clerk/backend": "2.33.9",

@@ -47,13 +47,13 @@ npm run dev
 
 ## 本番作成・デプロイ
 
-初回導入は [Cloudflare・Clerkの設定手順](docs/DEPLOYMENT.md) を参照してください。`npm run deploy:check` でD1 IDとビルド成果物を確認できます。
+初回導入は [Cloudflare・Clerkの設定手順](docs/DEPLOYMENT.md) を参照してください。`npm run deploy:check` でD1の名前またはIDとビルド成果物を確認できます。
 
 ```sh
 npx wrangler login
 npx wrangler r2 bucket create its-my-karta-media
 npx wrangler d1 create its-my-karta-db
-# 返された database_id を wrangler.jsonc の DB 設定に追加
+# database_name が作成したD1名と一致することを確認（database_idで固定することも可能）
 npx wrangler secret put CLERK_PUBLISHABLE_KEY
 npx wrangler secret put CLERK_JWT_KEY
 npx wrangler secret put CLERK_AUTHORIZED_PARTIES

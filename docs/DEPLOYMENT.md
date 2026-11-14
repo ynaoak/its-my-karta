@@ -25,7 +25,7 @@ npx wrangler r2 bucket create its-my-karta-media
 
 すでに同名リソースがある場合は再作成せず、`npx wrangler d1 list`、`npx wrangler r2 bucket list`で確認します。R2を初めて使うアカウントでは、Cloudflare DashboardでR2を有効にする操作が必要な場合があります。
 
-D1作成結果の`database_id`を`wrangler.jsonc`の`binding: "DB"`の項目へ追加し、変更をリポジトリへコミットしてください。`database_id`とアカウントIDは秘密キーではありません。独自名を使う場合は`database_name`と`bucket_name`を実際の名前に合わせます。
+採用中のWranglerは、`database_id`を省略した場合、`database_name`で既存D1を解決します。デフォルト設定の`its-my-karta-db`を作成済みなら、そのまま名前で指定できます。IDで接続先を固定したい場合は、D1作成結果の実際の`database_id`を`binding: "DB"`の項目へ追加し、コミットしてください。`database_id`とアカウントIDは秘密キーではありません。独自名を使う場合は`database_name`と`bucket_name`を実際の名前に合わせます。
 
 ```jsonc
 "d1_databases": [{
@@ -65,7 +65,7 @@ npm run db:migrate:remote
 npm run deploy
 ```
 
-`deploy:check`はD1のID、R2/DOのbinding、生成済み静的ファイル、Static Assetsのファイルサイズをローカルで確認します。Cloudflareへの通信、リソース存在、Clerkの実設定は確認しません。デフォルト設定では実際のD1 IDがないため失敗するのが正常です。
+`deploy:check`はD1の名前またはID、R2/DOのbinding、生成済み静的ファイル、Static Assetsのファイルサイズをローカルで確認します。Cloudflareへの通信、リソース存在、Clerkの実設定は確認しません。D1を名前で指定するデフォルト設定でも通ります。明示したIDが不正な場合や、名前とIDの両方がない場合は停止します。既存D1が未作成の場合は、後続のリモートmigrationでエラーになるため、先に手順2で作成してください。
 
 Workers Buildsを使う場合は、ビルド環境変数 `NODE_VERSION=26.13.1` を設定します（Worker実行時の環境変数ではありません）。ビルドコマンド`npm ci && npm run build`、デプロイコマンド`npm run deploy:check && npm run db:migrate:remote && npx wrangler deploy`を設定します。実行するCloudflareトークンにはD1 migrationの権限も必要です。
 
@@ -84,3 +84,43 @@ Workers Buildsを使う場合は、ビルド環境変数 `NODE_VERSION=26.13.1` 
 VOICEVOX生成を使う場合は、管理者が運営する認証付きHTTPSエンジンを用意し、`VOICEVOX_ENGINE_URL`と必要に応じて`VOICEVOX_API_KEY`をWorker secretsへ設定します。詳細な音声利用条件は`VOICEVOX-LICENSES.md`を確認してください。
 
 WASM生成には`npm run build`後に`node scripts/install-tts.mjs --remote --confirm-production-upload`でランタイムをR2へ配置し、`WASM-TTS.md`に従って規約を確認した本番モデルを設定します。公開テストモデルは本番へ配置しません。モデルを設定するまではWASM生成だけ無効です。
+
+## プレビュービルド（`previews`ブロックが必要というエラー）
+
+Cloudflareの非本番ブランチは`wrangler preview`で配信されます。通常の`wrangler deploy`とは設定が別で、トップレベルのbindingや環境変数は自動継承されません。`wrangler.jsonc`の`previews`に、次を指定しています。
+
+| 用途       | 本番                 | プレビュー                                  |
+| ---------- | -------------------- | ------------------------------------------- |
+| R2 `MEDIA` | `its-my-karta-media` | `its-my-karta-media-preview`                |
+| D1 `DB`    | `its-my-karta-db`    | `its-my-karta-db-preview`                   |
+| DO `ROOMS` | 本番の名前空間       | Previewごとに自動生成される独立した名前空間 |
+
+### 一度だけ行う設定
+
+Cloudflareへログインした端末で、プレビュー用リソースを作成します。すでに存在する場合は再作成しません。
+
+```sh
+npx wrangler r2 bucket create its-my-karta-media-preview
+npx wrangler d1 create its-my-karta-db-preview
+```
+
+### Cloudflare Workers Buildsのコマンド
+
+- ビルド：`npm ci && npm run build`
+- 本番デプロイ：`npm run deploy:check && npm run db:migrate:remote && npx wrangler deploy`
+- 非本番ブランチのデプロイ：`npm run deploy:preview`
+
+`deploy:preview`はビルド後、`previews`の設定を確認し、**専用の`its-my-karta-db-preview`**へmigrationを適用してから`wrangler preview`を実行します。非本番ブランチのデプロイで`db:migrate:remote`を使用すると本番DBが対象になるので、プレビューには使いません。プレビュー用R2/D1はブランチ間で共有しますが、本番とは分離されています。
+
+Clerkの本番secretsはPreviewへ自動継承されません。初回はテスト用ClerkのキーをPreviews Baseに登録し、Preview URLが確定したら、そのoriginを`CLERK_AUTHORIZED_PARTIES`とClerk側に設定します。
+
+```sh
+npx wrangler preview base-config secret put CLERK_PUBLISHABLE_KEY
+npx wrangler preview base-config secret put CLERK_JWT_KEY
+# URLが確定したPreviewに、そのoriginを登録
+npx wrangler preview secret put CLERK_AUTHORIZED_PARTIES --name 対象ブランチ名
+```
+
+既存Previewでは必要に応じて`preview secret put`で各キーも更新してください。Base secretの変更は新規Previewに適用され、作成済みPreviewには自動反映されません。Clerk未設定でも閲覧とおためし編集はできますが、ログインが必要な機能は無効です。
+
+参考： [Cloudflare公式のPreview設定](https://developers.cloudflare.com/workers/previews/configuration/)。

@@ -11,4 +11,15 @@
   "d1_databases": [
     { "binding": "DB", "database_name": "its-my-karta-db", "migrations_dir": "migrations" },
   ],
+  "previews": {
+    "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "its-my-karta-media-preview" }],
+    "d1_databases": [
+      {
+        "binding": "DB",
+        "database_name": "its-my-karta-db-preview",
+        "migrations_dir": "migrations",
+      },
+    ],
+    "durable_objects": { "bindings": [{ "name": "ROOMS", "class_name": "KarutaRoom" }] },
+  },
 }
