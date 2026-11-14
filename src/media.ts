@@ -38,7 +38,10 @@ export async function serve(req: Request, env: Env, key: string) {
   assert(/^(image|audio)\/[a-f0-9]{64}$/.test(key), 'ファイルがありません', 404);
   const obj = await env.MEDIA.get(key, { range: req.headers, onlyIf: req.headers });
   assert(obj, 'ファイルがありません', 404);
-  const headers = new Headers({ 'X-Content-Type-Options': 'nosniff' });
+  const headers = new Headers({
+    'X-Content-Type-Options': 'nosniff',
+    'X-Robots-Tag': 'noindex, nofollow',
+  });
   obj.writeHttpMetadata(headers);
   headers.set('ETag', obj.httpEtag);
   headers.set('Accept-Ranges', 'bytes');

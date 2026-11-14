@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">わたしのかるた</title>
+  <desc id="desc">好きなことばで、わたしたちのかるた。50音の札づくりとオンライン対戦。</desc>
+  <rect width="1200" height="630" fill="#f5f3eb"/>
+  <rect x="25" y="25" width="1150" height="580" rx="18" fill="none" stroke="#dedfd4" stroke-width="2"/>
+  <g font-family="Noto Serif CJK JP, Noto Serif JP, serif" fill="#263d34">
+    <rect x="65" y="65" width="52" height="62" rx="5" fill="#315f4d"/>
+    <text x="91" y="109" text-anchor="middle" font-size="38" fill="#fffdf8">か</text>
+    <text x="137" y="107" font-size="33" font-weight="700">わたしのかるた</text>
+    <text x="65" y="235" font-size="24" fill="#6d806e">ことばと絵から、みんなの遊びへ。</text>
+    <text x="65" y="325" font-size="55" font-weight="700">好きなことばで、</text>
+    <text x="65" y="405" font-size="55" font-weight="700">わたしたちのかるた。</text>
+  </g>
+  <g font-family="Noto Sans CJK JP, Noto Sans JP, sans-serif" font-size="20" fill="#315f4d">
+    <rect x="65" y="476" width="210" height="46" rx="23" fill="#e4eadc"/>
+    <text x="170" y="506" text-anchor="middle">50音の札づくり</text>
+    <rect x="291" y="476" width="294" height="46" rx="23" fill="#e4eadc"/>
+    <text x="438" y="506" text-anchor="middle">招待URLでオンライン対戦</text>
+    <text x="65" y="570" font-size="17" fill="#778078">yondetotte.oshi-katsu.com</text>
+  </g>
+  <g transform="translate(765 112) rotate(-10 130 165)">
+    <rect x="8" y="10" width="245" height="325" rx="9" fill="#dee1d3"/>
+    <rect width="245" height="325" rx="9" fill="#fffdf8" stroke="#dedac9" stroke-width="2"/>
+    <circle cx="42" cy="43" r="24" fill="none" stroke="#315f4d" stroke-width="2"/>
+    <text x="42" y="55" text-anchor="middle" font-size="31" fill="#315f4d" font-family="serif">あ</text>
+    <g stroke="#d6a14a" stroke-width="8" stroke-linecap="round">
+      <path d="M120 100v-15M120 235v-15M60 160H43M198 160h-17M76 116l-12-12M176 215l-12-12M164 116l12-12M64 215l12-12"/>
+      <circle cx="120" cy="160" r="39" fill="#e8c469" stroke="none"/>
+    </g>
+    <text x="122" y="289" text-anchor="middle" font-size="18" fill="#657268" font-family="serif">あしたも あそぼう</text>
+  </g>
+  <g transform="translate(945 253) rotate(12 90 120)">
+    <rect x="5" y="7" width="170" height="230" rx="8" fill="#d9dfcf"/>
+    <rect width="170" height="230" rx="8" fill="#e9eedf" stroke="#cdd6bf" stroke-width="2"/>
+    <circle cx="30" cy="32" r="19" fill="none" stroke="#315f4d" stroke-width="1.5"/>
+    <text x="30" y="42" text-anchor="middle" font-size="25" fill="#315f4d" font-family="serif">ね</text>
+    <path d="M48 108L46 67l29 24h24l29-24-3 41q18 50-38 56-59-4-39-56" fill="#d6b471"/>
+    <path d="M65 119h6m32 0h6m-24 12 5 5 5-5M50 132l-17-4m18 13-17 5m88-14 17-4m-18 13 17 5" fill="none" stroke="#315f4d" stroke-width="3" stroke-linecap="round"/>
+    <text x="85" y="204" text-anchor="middle" font-size="14" fill="#657268" font-family="serif">ねこの おひるね</text>
+  </g>
+</svg>

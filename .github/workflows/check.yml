@@ -17,10 +17,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - run: npm run deploy:check && npm run deploy:check -- --preview
       - run: npm run format:check && npm run check && npm test
       - run: npm run test:integration
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
+      - run: npm run test:seo
       - run: npm run tts:prepare-test-model && npm run test:wasm
       - run: npx wrangler deploy --dry-run
         env:

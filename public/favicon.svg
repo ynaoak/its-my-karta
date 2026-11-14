@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="わたしのかるた">
+  <rect x="12" y="12" width="488" height="488" rx="90" fill="#315f4d"/>
+  <rect x="47" y="47" width="418" height="418" rx="65" fill="none" stroke="#a9bba0" stroke-width="5"/>
+  <text x="256" y="365" text-anchor="middle" fill="#fffdf8" font-family="Noto Serif CJK JP, Noto Serif JP, serif" font-size="320">か</text>
+</svg>

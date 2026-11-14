@@ -1,3 +1,4 @@
+import { publicPage } from './seo';
 import { user, sameOrigin, clerkDomain } from './auth';
 import { decks } from './decks';
 import { body, cards, checkMedia, rules, json, assert, HttpError, type Env } from './types';
@@ -9,7 +10,7 @@ export default {
     try {
       const url = new URL(req.url),
         p = url.pathname;
-      if (!p.startsWith('/api/')) return env.ASSETS.fetch(req);
+      if (!p.startsWith('/api/')) return await publicPage(req, env);
       if (req.method !== 'GET' && req.method !== 'HEAD') sameOrigin(req);
       if (req.headers.get('upgrade')) sameOrigin(req);
       if (p === '/api/config' && req.method === 'GET')

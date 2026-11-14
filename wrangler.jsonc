@@ -4,11 +4,27 @@
   "main": "src/worker.ts",
   "compatibility_date": "2026-11-01",
   "keep_vars": true,
-  "assets": { "directory": "public", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/", "/index.html", "/robots.txt", "/sitemap.xml"],
+  },
   "durable_objects": { "bindings": [{ "name": "ROOMS", "class_name": "KarutaRoom" }] },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["KarutaRoom"] }],
   "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "its-my-karta-media" }],
   "d1_databases": [
     { "binding": "DB", "database_name": "its-my-karta-db", "migrations_dir": "migrations" },
   ],
+  "previews": {
+    "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "its-my-karta-media-preview" }],
+    "d1_databases": [
+      {
+        "binding": "DB",
+        "database_name": "its-my-karta-db-preview",
+        "database_id": "6563dcb5-f40d-4d4f-9733-cd0c5e7c05f0",
+        "migrations_dir": "migrations",
+      },
+    ],
+    "durable_objects": { "bindings": [{ "name": "ROOMS", "class_name": "KarutaRoom" }] },
+  },
 }

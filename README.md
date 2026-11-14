@@ -47,13 +47,13 @@ npm run dev
 
 ## 本番作成・デプロイ
 
-初回導入は [Cloudflare・Clerkの設定手順](docs/DEPLOYMENT.md) を参照してください。`npm run deploy:check` でD1 IDとビルド成果物を確認できます。
+初回導入は [Cloudflare・Clerkの設定手順](docs/DEPLOYMENT.md) を参照してください。`npm run deploy:check` でD1の名前またはIDとビルド成果物を確認できます。
 
 ```sh
 npx wrangler login
 npx wrangler r2 bucket create its-my-karta-media
 npx wrangler d1 create its-my-karta-db
-# 返された database_id を wrangler.jsonc の DB 設定に追加
+# database_name が作成したD1名と一致することを確認（database_idで固定することも可能）
 npx wrangler secret put CLERK_PUBLISHABLE_KEY
 npx wrangler secret put CLERK_JWT_KEY
 npx wrangler secret put CLERK_AUTHORIZED_PARTIES
@@ -85,3 +85,7 @@ npx wrangler deploy --dry-run
 統合テストは実際のローカルWorkers/DO/D1/R2と一時RSA鍵のClerk形式JWTを使用します。外部Clerk実サービスへのログインは含みません。ブラウザテストはChromium（`CHROMIUM_PATH`で指定可能）とClerk UIのテストfixtureを使います。ゲームの先着はサーバー到着順で、通信遅延差を補正しません。開始後の再接続・途中参加には対応していません。部屋IDは推測困難ですが、招待URLは公開場所へ貼らないでください。
 
 本番へのデプロイ・外部Clerk/VOICEVOXの実接続はこのPRに含みません。
+
+## SEO・サイトマップ
+
+[SEOの実装と公開後の設定](docs/SEO.md)。正規URLのサイトマップは `/sitemap.xml`、クロール設定は `/robots.txt`。紹介ページを検索対象にし、招待URLとプレビューはnoindexにしています。
