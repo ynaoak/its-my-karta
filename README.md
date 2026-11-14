@@ -47,6 +47,8 @@ npm run dev
 
 ## 本番作成・デプロイ
 
+初回導入は [Cloudflare・Clerkの設定手順](docs/DEPLOYMENT.md) を参照してください。`npm run deploy:check` でD1 IDとビルド成果物を確認できます。
+
 ```sh
 npx wrangler login
 npx wrangler r2 bucket create its-my-karta-media
